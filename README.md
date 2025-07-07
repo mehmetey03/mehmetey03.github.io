@@ -1,1 +1,0 @@
-# mehmetey03.github.io
