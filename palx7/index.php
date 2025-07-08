@@ -29,7 +29,7 @@ require './Mind.php';
 define('LICENSE', 'aren4');
 
 //kendi domainin
-define('DOMAIN', 'https://localhost');
+define('DOMAIN', 'https://mehmetey03.github.io/');
 
 //dizipal güncel domain
 define('PAL', 'https://dizipal953.com');
