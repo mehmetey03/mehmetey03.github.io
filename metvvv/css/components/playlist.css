@@ -140,9 +140,9 @@ body.playlist-visible #playlist {
 }
 
 #playlist-selector:focus {
-    border-color: var(--accent-blue);
-    background-color: var(--bg-secondary);
-    box-shadow: 0 0 8px rgba(74, 158, 255, 0.2);
+    border-color: var(--border-color);
+    background-color: var(--bg-tertiary);
+    box-shadow: none;
 }
 
 #playlist-selector option {
@@ -247,8 +247,7 @@ body.playlist-visible #playlist {
 }
 
 #playlist li:focus {
-    outline: 2px solid var(--accent-blue);
-    background-color: var(--bg-tertiary);
+    outline: none;
 }
 
 /* Channel Items */
@@ -276,14 +275,18 @@ body.playlist-visible #playlist {
     flex-shrink: 0;
     object-fit: cover;
     background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    border: none;
     transition: all var(--transition-fast);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .channel-icon:hover {
-    transform: scale(1.1);
-    border-color: var(--accent-blue);
+    transform: scale(1.05);
+}
+
+.channel-icon:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 /* Fallback icon for channels without logo */

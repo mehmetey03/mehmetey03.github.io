@@ -28,9 +28,10 @@ body.no-transition #playlist-toggle-handle span {
     transition: none !important;
 }
 
-/* Focus stilleri */
+/* Focus stilleri - tüm outline'ları kaldır */
 *:focus {
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Video.js border kaldırma */

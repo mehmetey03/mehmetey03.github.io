@@ -294,7 +294,9 @@ export function updatePlaylistActionButtons() {
 export async function loadDefaultPlaylist(defaultUrl, isRefresh = false) {
     console.log('Varsayılan M3U URL yükleniyor:', defaultUrl);
     try {
-        const response = await fetch(defaultUrl);
+        // Cache bypass: no-store ve benzersiz query parametresi ekle
+        const cacheBypassUrl = `${defaultUrl}${defaultUrl.includes('?') ? '&' : '?'}_=${Date.now()}`;
+        const response = await fetch(cacheBypassUrl, { cache: 'no-store' });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

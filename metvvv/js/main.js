@@ -71,7 +71,17 @@ window.addEventListener('load', () => {
         }
 
         console.log('localStorage\'den playlist verileri yüklendi.');
+
+        // Aktif playlist 'Varsayılan' ise sayfa yenilendiğinde otomatik tazele
+        const isDefaultActive = activePlaylistIndex >= 0 &&
+            playlists[activePlaylistIndex] &&
+            playlists[activePlaylistIndex].name === 'Varsayılan';
+
+        if (isDefaultActive && DEFAULT_M3U_URL) {
+            loadDefaultPlaylist(DEFAULT_M3U_URL, true);
+        }
     } else if (DEFAULT_M3U_URL) {
+        // İlk kurulumda varsayılan playlist'i yükle
         loadDefaultPlaylist(DEFAULT_M3U_URL, true);
     }
 

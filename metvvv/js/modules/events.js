@@ -37,6 +37,8 @@ export function initializeEventListeners() {
         }
     });
 
+    // Sayfa yenilenince otomatik yenileme main.js'de ele alındı
+
     // Playlist selector change
     elements.playlistSelector.addEventListener('change', (event) => {
         const selectedPlaylistId = parseInt(event.target.value);
@@ -261,8 +263,9 @@ async function handleUrlLoad(url, playlistName) {
             return;
         }
 
-        // Playlist URL'leri için fetch işlemi
-        const response = await fetch(url);
+        // Playlist URL'leri için fetch işlemi (cache bypass)
+        const cacheBypassUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
+        const response = await fetch(cacheBypassUrl, { cache: 'no-store' });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
